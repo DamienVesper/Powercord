@@ -12,26 +12,32 @@ module.exports = {
   },
 
   updateCurrentTrack: (newTrack) => {
-    FluxDispatcher.dirtyDispatch({
-      type: FluxActions.CURRENT_TRACK_UPDATED,
-      track: newTrack
-    });
+    if (!FluxDispatcher.dirtyDispatch) {
+      FluxDispatcher.dirtyDispatch({
+        type: FluxActions.CURRENT_TRACK_UPDATED,
+        track: newTrack
+      });
+    }
   },
 
   updatePlayerState: (newState) => {
-    FluxDispatcher.dirtyDispatch({
-      type: FluxActions.PLAYER_STATE_UPDATED,
-      state: {
-        ...newState,
-        spotifyRecordedProgressAt: Date.now()
-      }
-    });
+    if (!FluxDispatcher.dirtyDispatch) {
+      FluxDispatcher.dirtyDispatch({
+        type: FluxActions.PLAYER_STATE_UPDATED,
+        state: {
+          ...newState,
+          spotifyRecordedProgressAt: Date.now()
+        }
+      });
+    }
   },
 
   updateCurrentLibraryState: (newState) => {
-    FluxDispatcher.dirtyDispatch({
-      type: FluxActions.LIBRARY_STATE_UPDATED,
-      state: newState
-    });
+    if (!FluxDispatcher.dirtyDispatch) {
+      FluxDispatcher.dirtyDispatch({
+        type: FluxActions.LIBRARY_STATE_UPDATED,
+        state: newState
+      });
+    }
   }
 };
