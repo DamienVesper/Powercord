@@ -1,6 +1,8 @@
-const { FluxDispatcher } = require('powercord/webpack');
+const { FluxDispatcher, getModule } = require('powercord/webpack');
 const { FluxActions } = require('../constants');
 const SpotifyAPI = require('../SpotifyAPI');
+
+FluxDispatcher.dirtyDispatch = getModule([ 'dirtyDispatch' ], false);
 
 function formatTracks (spotifyTracks) {
   return Object.fromEntries(
