@@ -1,8 +1,6 @@
-const { FluxDispatcher, getModule } = require('powercord/webpack');
+const { FluxDispatcher } = require('powercord/webpack');
 const { FluxActions } = require('../constants');
 const SpotifyAPI = require('../SpotifyAPI');
-
-FluxDispatcher.dirtyDispatch = getModule([ 'dirtyDispatch' ], false);
 
 module.exports = {
   fetchDevices: async () => {
