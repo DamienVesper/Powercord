@@ -208,7 +208,7 @@ module.exports = class ModuleManager extends Plugin {
       return res;
     });
   }
-
+  
   async _injectSnippets () {
     const MiniPopover = await getModule(m => m.default && m.default.displayName === 'MiniPopover');
     inject('pc-moduleManager-snippets', MiniPopover, 'default', (args, res) => {
